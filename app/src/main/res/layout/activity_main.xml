@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edt_one_time_alarm_message"
+        android:id="@+id/edt_one_time_alarm_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/note"
@@ -102,7 +102,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edt_repeating_alarm_message"
+        android:id="@+id/edt_repeating_alarm_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/note"
@@ -116,5 +116,5 @@
         android:text="@string/set_repeating_alarm"
         android:textColor="@color/white"
         android:layout_marginBottom="@dimen/activity_vertical_layout"/>
-    
+
 </LinearLayout>
