@@ -1,18 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_layout"
+    android:paddingBottom="@dimen/activity_vertical_layout"
+    android:paddingLeft="@dimen/activity_horizontal_layout"
+    android:paddingRight="@dimen/activity_horizontal_layout"
+    android:orientation="vertical"
     tools:context="com.fai.alarmapp.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="One Time Alarm"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/activity_vertical_layout">
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_one_time_alarm_date"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="@string/titik"/>
+            <TextView
+                android:id="@+id/tv_one_time_alarm_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_one_time_alarm_time"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="@string/titik"/>
+            <TextView
+                android:id="@+id/tv_one_time_alarm_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edt_one_time_alarm_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/note"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
+
+    <Button
+        android:id="@+id/btn_set_one_time_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/set_one_time_alarm"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/repeating_alarm"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/activity_vertical_layout"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_repeating_alarm_time"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/titik"/>
+        <TextView
+            android:id="@+id/tv_repeating_alarm_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edt_repeating_alarm_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/note"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
+
+    <Button
+        android:id="@+id/btn_set_repeating_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/set_repeating_alarm"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/activity_vertical_layout"/>
+    
+</LinearLayout>
