@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING,
                     alarmPreference.getRepeatingTime(),
                     alarmPreference.getRepeatingNote());
+        } else if (view.getId() == R.id.btn_cancel_repeating_alarm) {
+            alarmReceiver.cancelAlarm(this, AlarmReceiver.TYPE_REPEATING);
         }
     }
 
@@ -136,5 +138,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvRepeatingTime.setText(alarmPreference.getRepeatingTime());
         edtRepeatingNote.setText(alarmPreference.getRepeatingNote());
     }
-    
+
 }
