@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             final Calendar currentDate = Calendar.getInstance();
             new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
-                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    calOneTimeDate.set(year, monthOfYear, dayOfMonth);
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calOneTimeDate.set(year, month, dayOfMonth);
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     tvOneTimeDate.setText(dateFormat.format(calOneTimeDate.getTime()));
                 }
-            }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
+            }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH)).show();
         } else if (view.getId() == R.id.btn_one_time_alarm_time) {
             final Calendar currentDate = Calendar.getInstance();
             new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {

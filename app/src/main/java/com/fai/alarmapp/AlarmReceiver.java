@@ -36,7 +36,7 @@ public class AlarmReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         String type = intent.getStringExtra(EXTRA_TYPE);
         String note = intent.getStringExtra(EXTRA_NOTE);
-        String title = type.equalsIgnoreCase(TYPE_ONE_TIME) ? "One TIme Alarm" : "Repeating Alarm";
+        String title = type.equalsIgnoreCase(TYPE_ONE_TIME) ? "One Time Alarm" : "Repeating Alarm";
         int notifId = type.equalsIgnoreCase(TYPE_ONE_TIME) ? NOTIF_ID_ONE_TIME : NOTIF_ID_REPEATING;
         showAlarmNotification(context, title, note, notifId);
     }
@@ -74,6 +74,24 @@ public class AlarmReceiver extends BroadcastReceiver{
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         Toast.makeText(context, "One time alarm setup", Toast.LENGTH_SHORT).show();
+    }
+
+    public void setRepeatingAlarm(Context context, String type, String time, String note){
+        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        intent.putExtra(EXTRA_NOTE, note);
+        intent.putExtra(EXTRA_TYPE, type);
+        String timeArray[] = time.split(":");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]));
+        calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]));
+        calendar.set(Calendar.SECOND, 0);
+
+        int requestCode = NOTIF_ID_REPEATING;
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        Toast.makeText(context, "Repeating alarm setup", Toast.LENGTH_SHORT).show();
     }
 
     public void cancelAlarm(Context context, String type){
