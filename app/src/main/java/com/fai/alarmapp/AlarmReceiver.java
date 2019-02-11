@@ -45,7 +45,7 @@ public class AlarmReceiver extends BroadcastReceiver{
         NotificationManager notificationManagerCompat = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-//                .setSmallIcon(R.drawable.ic_access_alarm_black_36dp)
+                .setSmallIcon(R.drawable.ic_access_alarm_black_24dp)
                 .setContentTitle(title)
                 .setContentText(note)
                 .setColor(ContextCompat.getColor(context, android.R.color.transparent))
